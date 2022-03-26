@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>To-Do-List Site | Home</title>
+</head> 
+
+
+
+<body>
+    <ul id = "todo-list">
+        <li>To do 1</li>
+        <li>To do 1</li>
+    </ul>
+
+    <input id= "add-input" type="text"/>
+    <input id="checkbox" type = "checkbox">
+    <button id="add-button">add</button>
+    <script>
+        function processAdd(event) {
+            let input = document.querySelector("add-input");
+            let text = input.value;
+            let newLI = document.createElement("li");
+            newLI.innerText = text;
+            let todoList = document.querySelector("#todo-list");
+            todoList.appendChild(newLI);
+            input.value = "";
+        }
+
+        function processKey(event) {
+            keyPressed = event.key;
+            if(keyPressed === "q") {
+                alert("Hello Qanon.")
+            }
+        }
+
+        function specialCode(event) {
+                event.stopPropagation();
+        }
+    
+        let button = document.querySelector("#add-button");
+        button.addEventListener("click", processAdd);
+       input.removeEventListener("keypress", specialCode);
+        document.addEventListener("keypress", processKey);
+    </script>
+</body>
+</html>
