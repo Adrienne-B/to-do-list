@@ -10,17 +10,20 @@
 
 
 <body>
+    <input id= "add-input" type="text"/>
+    <input id="checkbox" type = "checkbox">
+    <button id="add-button">add</button>
+
     <ul id = "todo-list">
         <li>To do 1</li>
         <li>To do 1</li>
     </ul>
 
-    <input id= "add-input" type="text"/>
-    <input id="checkbox" type = "checkbox">
-    <button id="add-button">add</button>
     <script>
         function processAdd(event) {
-            let input = document.querySelector("add-input");
+            console.log("processAdd");
+            let input = document.querySelector("#add-input");
+            console.log("input", input);
             let text = input.value;
             let newLI = document.createElement("li");
             newLI.innerText = text;
@@ -42,8 +45,12 @@
     
         let button = document.querySelector("#add-button");
         button.addEventListener("click", processAdd);
-       input.removeEventListener("keypress", specialCode);
+        input.removeEventListener("keypress", specialCode);
         document.addEventListener("keypress", processKey);
     </script>
 </body>
 </html>
+
+<!--The issue I was having was words would not appear once I hit the add button.-->
+<!--This was because add-input wasnt connected. I needed to put # in front because in html the button had an id.-->
+<!--Once that was fixed then the list would appear on the top of the placeholder. So I had to go to html and move to do list underneath input section.-->
